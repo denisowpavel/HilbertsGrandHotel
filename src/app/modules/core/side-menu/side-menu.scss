@@ -1,0 +1,8 @@
+aside {
+  &::before {
+    display: none;
+  }
+  & {
+    height: calc(100vh - 48px)!important;
+  }
+}

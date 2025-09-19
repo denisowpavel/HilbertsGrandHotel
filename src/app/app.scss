@@ -8,14 +8,7 @@
   color: var(--tui-text-primary);
 }
 
-aside {
-  &::before {
-    display: none;
-  }
-  & {
-    height: calc(100vh - 48px)!important;
-  }
-}
+
 
 header::after {
   display: none;
