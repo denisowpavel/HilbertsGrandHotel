@@ -1,39 +1,17 @@
-import { Component, signal } from '@angular/core';
-import { TuiAsideComponent, TuiAsideGroupComponent, TuiAsideItemDirective } from '@taiga-ui/layout';
-import { TuiDataListComponent, TuiDropdownDirective } from '@taiga-ui/core';
-import { TuiBadge } from '@taiga-ui/kit';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Injectable, signal, Signal } from '@angular/core';
 
-@Component({
-  selector: 'app-side-menu',
-  imports: [
-    TuiAsideComponent,
-    TuiAsideItemDirective,
-    TuiDataListComponent,
-    TuiDropdownDirective,
-    TuiBadge,
-    TuiAsideGroupComponent,
-    RouterLink,
-    RouterLinkActive,
-  ],
-  templateUrl: './side-menu.html',
-  styleUrl: './side-menu.scss',
-  standalone: true,
+@Injectable({
+  providedIn: 'root',
 })
-export class SideMenu {
-  protected readonly routes: any = {};
-  protected expanded = signal(true);
-  protected handleToggle(): void {
-    this.expanded.update((e) => !e);
-  }
-  sideNavigation: IMenuNode[] = [
+export class NavigationService {
+  public sideNavigation = signal<IMenuNode[]>([
     {
       label: 'Main',
       icon: 'house',
       open: true,
       children: [
-        { label: 'Room by day', icon: 'calendar-days', badge: '2' },
-        { label: 'Room by hour', icon: 'calendar-clock',  },
+        { label: 'Room by day', icon: 'calendar-days', badge: 2 },
+        { label: 'Room by hour', icon: 'calendar-clock' },
         { label: 'Open occupancies', icon: 'book-open' },
         { label: 'Closed occupancies', icon: 'book-open-check' },
         { label: 'Clients', icon: 'users' },
@@ -62,5 +40,19 @@ export class SideMenu {
         { label: 'Users', icon: 'user-cog' },
       ],
     },
-  ];
+  ]);
+
+  addBadge() {
+    this.sideNavigation.update((actualSideNavigation) => {
+      let res = [...actualSideNavigation];
+      res = res.map((group) => ({
+        ...group,
+        children: group.children?.map((page) => ({
+          ...page,
+          badge: page.badge ? page.badge+1 : undefined,
+        })),
+      }));
+      return res;
+    });
+  }
 }

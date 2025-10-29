@@ -3,7 +3,7 @@
     {{routes.Navigation}}
     <a [routerLink]="routes.Navigation" iconStart="@tui.plus" tuiAsideItem type="button" tuiAppearance="true">Add</a>
   </header>
-  @for (group of sideNavigation; track group.label) {
+  @for (group of navigationService.sideNavigation(); track group.label) {
     <tui-aside-group  [open]="group.open!">
       <button [iconStart]="group.icon" tuiAsideItem tuiChevron type="button">
         {{ group.label }}
@@ -12,7 +12,7 @@
             <button [iconStart]="item.icon" tuiAsideItem type="button" >
               {{ item.label }}
               @if (item.badge) {
-                <tui-badge appearance="accent">{{ item.badge }}</tui-badge>
+                <tui-badge appearance="accent" (click)="navigationService.addBadge()">{{ item.badge }}</tui-badge>
               }
             </button>
           }
