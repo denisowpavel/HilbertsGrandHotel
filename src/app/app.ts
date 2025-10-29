@@ -84,23 +84,6 @@ const ICON =
   standalone: true,
 })
 export class App {
-
-  protected open = false;
-  protected switch = true;
-  protected readonly routes: any = {};
   protected readonly breadcrumbs = ['Home', 'Angular', 'Repositories', 'Taiga UI'];
-
-  protected readonly drawer = {
-    Components: [
-      { name: 'Button', icon: ICON },
-      { name: 'Input', icon: ICON },
-      { name: 'Tooltip', icon: ICON },
-    ],
-    Essentials: [
-      { name: 'Getting started', icon: ICON },
-      { name: 'Showcase', icon: ICON },
-      { name: 'Typography', icon: ICON },
-    ],
-  };
 
 }
