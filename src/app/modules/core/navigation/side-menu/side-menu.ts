@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import {Component, OnInit, signal} from '@angular/core';
 import { TuiAsideComponent, TuiAsideGroupComponent, TuiAsideItemDirective } from '@taiga-ui/layout';
 import { TuiDataListComponent, TuiDropdownDirective } from '@taiga-ui/core';
 import { TuiBadge } from '@taiga-ui/kit';
@@ -10,7 +10,6 @@ import { NavigationService } from '../navigation-service';
   imports: [
     TuiAsideComponent,
     TuiAsideItemDirective,
-    TuiDataListComponent,
     TuiDropdownDirective,
     TuiBadge,
     TuiAsideGroupComponent,
@@ -21,7 +20,9 @@ import { NavigationService } from '../navigation-service';
   styleUrl: './side-menu.scss',
   standalone: true,
 })
-export class SideMenu {
+export class SideMenu implements OnInit{
+
+
   protected readonly routes: any = {};
   protected expanded = signal(true);
   protected handleToggle(): void {
@@ -29,4 +30,7 @@ export class SideMenu {
   }
 
   constructor(public navigationService: NavigationService) {}
+
+  ngOnInit() {
+  }
 }

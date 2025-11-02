@@ -1,5 +1,6 @@
 <aside [style.height.rem]="27" [tuiNavigationAside]="expanded()">
   <header>
+    {{navigationService.navigationResource.hasValue()}}
     {{routes.Navigation}}
     <a [routerLink]="routes.Navigation" iconStart="@tui.plus" tuiAsideItem type="button" tuiAppearance="true">Add</a>
   </header>
@@ -9,10 +10,10 @@
         {{ group.label }}
         <ng-template>
           @for (item of group.children; track item.label) {
-            <button [iconStart]="item.icon" tuiAsideItem type="button" >
+            <button [iconStart]="item.icon" tuiAsideItem type="button" (click)="navigationService.addBadge(item.path)">
               {{ item.label }}
               @if (item.badge) {
-                <tui-badge appearance="accent" (click)="navigationService.addBadge()">{{ item.badge }}</tui-badge>
+                <tui-badge appearance="accent">{{ item.badge }}</tui-badge>
               }
             </button>
           }

@@ -1,0 +1,108 @@
+{
+  "sideMenu": [
+    {
+      "label": "Main",
+      "path": "main",
+      "icon": "house",
+      "open": true,
+      "children": [
+        {
+          "label": "Room by day",
+          "path": "main/room-by-day",
+          "icon": "calendar-days"
+        },
+        {
+          "label": "Room by hour",
+          "path": "main/room-by-hour",
+          "icon": "calendar-clock"
+        },
+        {
+          "label": "Open occupancies",
+          "path": "main/open-occupancies",
+          "icon": "book-open"
+        },
+        {
+          "label": "Closed occupancies",
+          "path": "main/closed-occupancies",
+          "icon": "book-open-check"
+        },
+        {
+          "label": "Clients",
+          "path": "main/clients",
+          "icon": "users"
+        },
+        {
+          "label": "Payments",
+          "path": "main/payments",
+          "icon": "credit-card"
+        },
+        {
+          "label": "Employee Schedule",
+          "path": "main/employee-schedule",
+          "icon": "clipboard-clock"
+        },
+        {
+          "label": "Employees",
+          "path": "main/employees",
+          "icon": "id-card-lanyard"
+        },
+        {
+          "label": "Inventory",
+          "path": "main/inventory",
+          "icon": "drill"
+        },
+        {
+          "label": "CCTV",
+          "path": "main/cctv",
+          "icon": "cctv"
+        }
+      ]
+    },
+    {
+      "label": "Reports",
+      "path": "reports",
+      "icon": "chart-line",
+      "open": true,
+      "children": [
+        {
+          "label": "Room occupancies",
+          "path": "reports/room-occupancies",
+          "icon": "bath"
+        }
+      ]
+    },
+    {
+      "label": "Directories",
+      "path": "directories",
+      "icon": "list",
+      "open": true,
+      "children": [
+        {
+          "label": "Rooms",
+          "path": "directories/rooms",
+          "icon": "bed-double"
+        },
+        {
+          "label": "Services",
+          "path": "directories/services",
+          "icon": "hand-platter"
+        },
+        {
+          "label": "Payment Categories",
+          "path": "directories/payment-categories",
+          "icon": "square-menu"
+        },
+        {
+          "label": "Companies",
+          "path": "directories/companies",
+          "icon": "factory"
+        },
+        {
+          "label": "Users",
+          "path": "directories/users",
+          "icon": "user-cog"
+        }
+      ]
+    }
+  ]
+}
